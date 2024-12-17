@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ResponseProgressController;
+use App\Http\Controllers\StaffProvincesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\UserController;
@@ -28,7 +29,7 @@ Route::middleware(['isHeadStaff'])->group(function () {
     // Route::get('/edit/akun/{id}', [UserController::class, 'edit'])->name('user.edit');
     Route::patch('/reset/akun/{id}', [UserController::class, 'reset'])->name('user.reset');
     Route::delete('/delete/akun/{id}', [UserController::class, 'destroy'])->name('user.delete');
-
+    Route::get('/chart',[StaffProvincesController::class,'chart'])->name('chart');
 });
 
 Route::middleware(['isStaff'])->group(function(){

@@ -9,7 +9,7 @@
                 Tempat untuk melaporkan keluhan dan permasalahan yang sering dihadapi oleh masyarakat setempat. 
                 Kami berkomitmen untuk menindaklanjuti setiap laporan dengan cepat dan transparan.
             </p>
-            <a href="{{ route('report.index') }}" class="btn btn-lg btn-primary mt-3">Laporkan Keluhan Sekarang</a>
+            <a href="{{ route('register') }}" class="btn btn-lg btn-primary mt-3">Bergabung Sekarang</a>
         </div>
 
         <!-- Features Section -->
@@ -40,7 +40,6 @@
         <!-- Call to Action -->
         <div class="mt-5 p-4 bg-primary text-white text-center rounded">
             <h3 class="fw-bold">Laporkan Sekarang dan Bersama Kita Selesaikan Masalah!</h3>
-            <a href="{{ route('report.index') }}" class="btn btn-light btn-lg mt-3">Buat Laporan</a>
         </div>
     </div>
 @endsection

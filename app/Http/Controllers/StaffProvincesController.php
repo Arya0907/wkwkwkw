@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\staff_provinces;
 use Illuminate\Http\Request;
+use App\Models\Report;
+use App\Models\Response;
 
 class StaffProvincesController extends Controller
 {
@@ -61,5 +63,16 @@ class StaffProvincesController extends Controller
     public function destroy(staff_provinces $staff_provinces)
     {
         //
+    }
+
+    public function chart (Request $request)
+    {
+        $report = Report::all();
+        $response = Response::all();
+
+        $report_count = count($report);
+        $response_count = count($response);
+
+        return view('chart', compact('report_count', 'response_count'));
     }
 }

@@ -14,6 +14,10 @@ class LandingPageController extends Controller
         return view('landing-page');
     }
 
+    public function index2(){
+        return view('landing-page2');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

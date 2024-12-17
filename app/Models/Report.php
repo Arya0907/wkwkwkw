@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Response_progress;
 class Report extends Model
 {
-   
+
     protected $fillable = [
         'description',
         'type',
@@ -22,29 +22,33 @@ class Report extends Model
     ];
 
     protected $casts = [
-      'voting' => 'array',
+        'voting' => 'array',
     ];
 
-    public function response() {
-        return $this->hasOne(Response::class, 'report_id', 'id');
+    public function response()
+    {
+        return $this->hasOne(Response::class, );
     }
 
-    public function User(){
+    public function User()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function Comment(){
+    public function Comment()
+    {
         return $this->hasMany(Comment::class);
     }
 
-    public function report() {
+    public function report()
+    {
         return $this->belongsTo(Report::class, 'report_id', 'id');
     }
 
     public function responseProgresses()
-{
-    return $this->hasMany(Response_progress::class, 'report_id');
-}
+    {
+        return $this->hasMany(Response_progress::class, 'report_id');
+    }
 
-    
+
 }

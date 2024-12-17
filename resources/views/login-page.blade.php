@@ -54,7 +54,7 @@
                     <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">
                         <i class="fas fa-sign-in-alt me-2"></i>Login
                     </button>
-                    <a href="{{route('register')}}" class="btn btn-outline-primary btn-lg w-100">Register</a>
+                    <a href="{{route('register')}}" class="btn btn-outline-primary btn-lg w-100">Belum Punya akun?</a>
                 </form>
             </div>
         </div>

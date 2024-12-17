@@ -35,7 +35,7 @@ class UserController extends Controller
         $user = $request->only(['email','password']);
 
         if(auth()->attempt($user)){
-            return redirect()->route('home');
+            return redirect()->route('report.index');
         }else{
             return redirect()->back();
         }

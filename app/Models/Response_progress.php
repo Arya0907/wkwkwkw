@@ -25,10 +25,16 @@ class Response_progress extends Model
     {
         return $this->belongsTo(Response::class);
     }
+    
+    public function report()
+    {
+        return $this->belongsTo(Report::class, 'report_id');
+    }
 
     // Method untuk menambah history
     public function addHistory($progressText)
     {
+        
         $histories = $this->histories ?? [];
         
         $newHistory = [

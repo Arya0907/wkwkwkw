@@ -31,21 +31,16 @@ class ReportController extends Controller
     }
 
 
-    public function monitor()
-    {
-        // Ambil semua progres yang ada
-        $progresses = Response_progress::all();
-        
-        // Ambil laporan yang terkait dengan pengguna yang sedang login
-        $reports = Auth::user()->reports; 
-        
-        // Kirim data ke view
-        return view('report.monitoring', compact('reports', 'progresses'));
-    }
-    
-    
+ public function monitor()
+{
+    // Ambil laporan yang terkait dengan pengguna yang sedang login dan berdasarkan report id
+    $reports = Report::where('user_id', Auth::user()->id)->with('responseProgresses','response')->get();
 
+    // Ambil progres yang hanya terkait dengan report id yang relevan
 
+    // Kirim data ke view
+    return view('report.monitoring', compact('reports'));
+}
 
 
 

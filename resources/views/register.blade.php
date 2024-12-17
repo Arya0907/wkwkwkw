@@ -55,6 +55,7 @@
                         <i class="fas fa-sign-in-alt me-2"></i>Create Your Account
                     </button>
                 </form>
+                <a href="{{route('login')}}" class="btn btn-outline-primary btn-lg w-100">Sudah Punya akun?</a>
             </div>
         </div>
     </div>

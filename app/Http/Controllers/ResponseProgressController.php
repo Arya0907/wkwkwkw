@@ -30,28 +30,36 @@ class ResponseProgressController extends Controller
      */
     public function store(Request $request, $id) {
         // Find the Response based on ID
-        // dd($request->all());
         $response = Response::where('report_id', $id)->first();
         
+        if (!$response) {
+            return redirect()->back()->with('error', 'Response not found');
+        }
+    
         $validated = $request->validate([
             'response_progress' => 'required|string|max:1000'
         ]);
     
+        // Create or update the response progress
         $responseProgress = Response_progress::firstOrNew([
             'response_id' => $response->id
         ]);
     
+        // Add to histories
         $histories = $responseProgress->histories ?? [];
         $histories[] = [
             'response_progress' => $validated['response_progress'],
             'created_at' => now()->toDateTimeString()
         ];
     
+        // Set the histories and the report_id if it's required by the database
         $responseProgress->histories = $histories;
+        $responseProgress->report_id = $response->report_id; // Add this line to set the report_id
+    
+        // Save the data
         $responseProgress->save();
     
         return redirect()->back()->with('success', 'Progress berhasil ditambahkan');
-        // Validate data received
     }
     
 
